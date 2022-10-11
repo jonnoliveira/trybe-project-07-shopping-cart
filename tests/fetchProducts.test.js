@@ -19,9 +19,7 @@ describe('1 - Teste a função fetchProducts', () => {
     expect(await fetchProducts('computador')).toEqual(computadorSearch);
   })
   it('5 - should test if function return is an error when called without argument', () => {
-    async () => {
-      expect(await fetchProducts()).toThrow(Error('You must provide an url'));
-    }
+    expect(fetchProducts()).rejects.toThrow('You must provide an url');
   })
 })
 

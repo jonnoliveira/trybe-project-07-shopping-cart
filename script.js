@@ -74,9 +74,8 @@ const createCartItemElement = ({ id, title, price }) => {
 };
 
 const dataAPI = async () => {
-  const data = await fetchProducts('computador');
+  const data = (await fetchProducts('computador')).results;
   const section = document.querySelector('.items');
-  // const ul = document.createElement('ul');
 
   data.forEach((item) => {
     section.appendChild(createProductItemElement(item));

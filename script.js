@@ -2,8 +2,6 @@
 // experimente passar o mouse sobre o nome das funções e verá que elas possuem descrições! 
 // Fique a vontade para modificar o código já escrito e criar suas próprias funções!
 
-// const { fetchProducts } = require('./helpers/fetchProducts');
-
 /**
  * Função responsável por criar e retornar o elemento de imagem do produto.
  * @param {string} imageSource - URL da imagem.
@@ -55,7 +53,16 @@ const createProductItemElement = ({ id, title, thumbnail }) => {
  * @param {Element} product - Elemento do produto.
  * @returns {string} ID do produto.
  */
-const getIdFromProductItem = (product) => product.querySelector('span.id').innerText;
+const getIdFromProductItem = (product) => product.querySelector('span.item_id').innerText;
+
+// SELETOR PARA OS ITENS DA LISTA DO CARRINHO
+const listItem = document.querySelector('.cart__items');
+
+// EVENTO QUE APAGA CADA ITEM DO CARRINHO QUANDO CLICKADO
+const cartItemClickListener = (event) => {
+  const clickedElement = event.target;
+  listItem.removeChild(clickedElement);
+};
 
 /**
  * Função responsável por criar e retornar um item do carrinho.
@@ -73,15 +80,31 @@ const createCartItemElement = ({ id, title, price }) => {
   return li;
 };
 
-const dataAPI = async () => {
-  const data = (await fetchProducts('computador')).results;
+// ADICIONA ITENS DA API NA SEÇÃO
+fetchProducts('computador').then((data) => {
+  // SELETOR PARA CADA ITEM CRIADO
   const section = document.querySelector('.items');
+  data.results.forEach((element) => {
+    section.appendChild(createProductItemElement(element));
+  });
+});
 
-  data.forEach((item) => {
-    section.appendChild(createProductItemElement(item));
+// FUNÇÃO PARA ADICIONAR ITENS AO CARRINHO
+const addFromButton = async () => {
+  // SELETOR DOS RESULTADOS DOS PRODUTOS DA API E DOS BOTÕES DA PÁGINA
+  const data = (await fetchProducts('computador')).results;
+  const buttons = document.querySelectorAll('.item__add');
+
+  data.forEach(async (element, index) => {
+  buttons[index].addEventListener('click', async (event) => {
+    const item = event.target.parentElement;
+    const itemId = getIdFromProductItem(item);
+    const itemInfo = await fetchItem(itemId);
+    listItem.appendChild(createCartItemElement(itemInfo));
+  });
   });
 };
 
-window.onload = () => { 
-  dataAPI();
+window.onload = () => {
+  addFromButton();
 };

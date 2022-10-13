@@ -66,12 +66,6 @@ const addItemPrice = (price) => {
   divPrice.innerText = `R$ ${sum}`;
 };
 
-// //  FUNÇÃO QUE SUBTRAI O VALOR TOTAL DOS ITENS DO CARRINHO
-// const rmvItemPrice = (price) => {
-//   sum -= price;
-//   divPrice.innerText = `R$ ${sum}`;
-// };
-
 /**
  * Função responsável por criar e retornar um item do carrinho.
  * @param {Object} product - Objeto do produto.
@@ -90,11 +84,28 @@ const createCartItemElement = ({ id, title, price }) => {
     listItem.removeChild(clickedElement);
 
     const newValue = sum - price;
-    console.log(newValue);
     divPrice.innerText = `R$ ${newValue}`;
     sum = newValue;
   });
   return li;
+};
+
+// FUNÇÃO LOADING DA API CRIA ELEMENTO
+const loadingApi = () => {
+  const divLoading = document.createElement('div');
+  divLoading.className = 'loading';
+  divLoading.innerText = 'carregando...';
+
+  const section = document.querySelector('.container');
+  section.appendChild(divLoading);
+};
+
+// FUNÇÃO LOADING DA API REMOVE ELEMENTO
+const rmvloadingApi = () => {
+  const divLoading = document.querySelector('.loading');
+  const section = document.querySelector('.container');
+
+  section.removeChild(divLoading);
 };
 
 // ADICIONA ITENS DA API NA SEÇÃO
@@ -104,6 +115,7 @@ fetchProducts('computador').then((data) => {
   data.results.forEach((element) => {
     section.appendChild(createProductItemElement(element));
   });
+  loadingApi();
 });
 
 // FUNÇÃO PARA ADICIONAR ITENS AO CARRINHO
@@ -127,6 +139,7 @@ const addFromButton = async () => {
       addItemPrice(price);
     });
   });
+  rmvloadingApi();
 };
 
 // FUNÇÃO QUE BUSCA OS ITENS SALVOS NO LOCALSTORAGE E OS MANTEM NO CARRINHO
@@ -138,7 +151,6 @@ const recoveryCart = () => {
     });
   }
   localStorage.clear();
-  // sum = 0;
 };
 
 // SELETOR BOTÃO CARRINHO

@@ -21,11 +21,11 @@ describe('3 - Teste a função saveCartItems', () => {
       "price": 1261.04
     }
   ]
- const param = ['cartItem', JSON.stringify(itemArray)];
+  const param = ['cartItem', JSON.stringify(itemArray)];
   it('1 - should be a function', () => {
     expect(typeof saveCartItems).toBe('function');
   })
-  it('2 - should test if localStorage was called', () => {
+  it('2 - should test if localStorage.setItem was called', () => {
     saveCartItems(itemArray);
     expect(localStorage.setItem).toHaveBeenCalled();
   });

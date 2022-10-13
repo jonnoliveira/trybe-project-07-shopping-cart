@@ -107,7 +107,6 @@ const addFromButton = async () => {
       const itemStorage = { id, title, price };
       storage.push(itemStorage);
       saveCartItems(storage);
-      console.log(storage);
     });
   });
 };

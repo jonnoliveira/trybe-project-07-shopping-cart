@@ -111,6 +111,16 @@ const addFromButton = async () => {
   });
 };
 
+const recoveryCart = () => {
+  if (localStorage.cartItem) {
+    const memory = JSON.parse(getSavedCartItems());
+    memory.forEach((element) => {
+      listItem.appendChild(createCartItemElement(element));
+    });
+  }
+};
+
 window.onload = () => {
   addFromButton();
+  recoveryCart();
 };

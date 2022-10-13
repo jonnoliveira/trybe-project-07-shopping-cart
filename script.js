@@ -55,13 +55,21 @@ const createProductItemElement = ({ id, title, thumbnail }) => {
  */
 const getIdFromProductItem = (product) => product.querySelector('span.item_id').innerText;
 
-// SELETOR PARA OS ITENS DA LISTA DO CARRINHO
+// SELETOR PARA OS ITENS DA LISTA DO CARRINHO E SEUS VALORES
 const listItem = document.querySelector('.cart__items');
+const divPrice = document.querySelector('.total-price');
+let sum = 0;
 
-// EVENTO QUE APAGA CADA ITEM DO CARRINHO QUANDO CLICKADO
-const cartItemClickListener = (event) => {
-  const clickedElement = event.target;
-  listItem.removeChild(clickedElement);
+//  FUNÇÃO QUE SOMA O VALOR TOTAL DOS ITENS DO CARRINHO
+const addItemPrice = (price) => {
+  sum += price;
+  divPrice.innerText = `R$ ${sum}`;
+};
+
+//  FUNÇÃO QUE SUBTRAI O VALOR TOTAL DOS ITENS DO CARRINHO
+const rmvItemPrice = (price) => {
+  sum -= price;
+  divPrice.innerText = `R$ ${sum}`;
 };
 
 /**
@@ -76,7 +84,16 @@ const createCartItemElement = ({ id, title, price }) => {
   const li = document.createElement('li');
   li.className = 'cart__item';
   li.innerText = `ID: ${id} | TITLE: ${title} | PRICE: $${price}`;
-  li.addEventListener('click', cartItemClickListener);
+  li.addEventListener('click', (event) => {
+    // EVENTO QUE APAGA CADA ITEM DO CARRINHO QUANDO CLICKADO E SUBTRAI O PREÇO
+    const clickedElement = event.target;
+    listItem.removeChild(clickedElement);
+  
+    const newValue = sum - price;
+    console.log(newValue);
+    divPrice.innerText = `R$ ${newValue}`;
+    sum = newValue;
+  });
   return li;
 };
 
@@ -107,10 +124,12 @@ const addFromButton = async () => {
       const itemStorage = { id, title, price };
       storage.push(itemStorage);
       saveCartItems(storage);
+      addItemPrice(price);
     });
   });
 };
 
+// FUNÇÃO QUE BUSCA OS ITENS SALVOS NO LOCALSTORAGE E OS MANTEM NO CARRINHO
 const recoveryCart = () => {
   if (localStorage.cartItem) {
     const memory = JSON.parse(getSavedCartItems());
@@ -118,6 +137,8 @@ const recoveryCart = () => {
       listItem.appendChild(createCartItemElement(element));
     });
   }
+  localStorage.clear();
+  // sum = 0;
 };
 
 window.onload = () => {

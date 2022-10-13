@@ -66,11 +66,11 @@ const addItemPrice = (price) => {
   divPrice.innerText = `R$ ${sum}`;
 };
 
-//  FUNÇÃO QUE SUBTRAI O VALOR TOTAL DOS ITENS DO CARRINHO
-const rmvItemPrice = (price) => {
-  sum -= price;
-  divPrice.innerText = `R$ ${sum}`;
-};
+// //  FUNÇÃO QUE SUBTRAI O VALOR TOTAL DOS ITENS DO CARRINHO
+// const rmvItemPrice = (price) => {
+//   sum -= price;
+//   divPrice.innerText = `R$ ${sum}`;
+// };
 
 /**
  * Função responsável por criar e retornar um item do carrinho.
@@ -88,7 +88,7 @@ const createCartItemElement = ({ id, title, price }) => {
     // EVENTO QUE APAGA CADA ITEM DO CARRINHO QUANDO CLICKADO E SUBTRAI O PREÇO
     const clickedElement = event.target;
     listItem.removeChild(clickedElement);
-  
+
     const newValue = sum - price;
     console.log(newValue);
     divPrice.innerText = `R$ ${newValue}`;
@@ -140,6 +140,19 @@ const recoveryCart = () => {
   localStorage.clear();
   // sum = 0;
 };
+
+// SELETOR BOTÃO CARRINHO
+const buttonCart = document.querySelector('.empty-cart');
+
+// FUNÇÃO PARA LIMPAR O CARRINHO E O PREÇO FINAL
+const clearCart = () => {
+  const cartList = document.querySelector('.cart__items');
+  cartList.innerHTML = '';
+  sum = 0;
+  divPrice.innerText = `R$ ${sum}`;
+};
+
+buttonCart.addEventListener('click', clearCart);
 
 window.onload = () => {
   addFromButton();

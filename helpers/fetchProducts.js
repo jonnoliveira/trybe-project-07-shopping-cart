@@ -2,7 +2,6 @@ const getUrlItem = (item) => `https://api.mercadolibre.com/sites/MLB/search?q=${
 
 const fetchProducts = async (item) => {
   const url = getUrlItem(item);
-
   try {
     const response = await fetch(url);
     const data = await response.json();
@@ -11,8 +10,6 @@ const fetchProducts = async (item) => {
     throw new Error('You must provide an url');
   }
 };
-
-// fetchProducts('computador');
 
 if (typeof module !== 'undefined') {
   module.exports = {

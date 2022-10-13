@@ -96,26 +96,27 @@ const loadingApi = () => {
   divLoading.className = 'loading';
   divLoading.innerText = 'carregando...';
 
-  const section = document.querySelector('.container');
+  const section = document.querySelector('.items');
   section.appendChild(divLoading);
 };
 
 // FUNÇÃO LOADING DA API REMOVE ELEMENTO
 const rmvloadingApi = () => {
   const divLoading = document.querySelector('.loading');
-  const section = document.querySelector('.container');
+  const section = document.querySelector('.items');
 
   section.removeChild(divLoading);
 };
 
 // ADICIONA ITENS DA API NA SEÇÃO
+loadingApi();
 fetchProducts('computador').then((data) => {
   // SELETOR PARA CADA ITEM CRIADO
   const section = document.querySelector('.items');
   data.results.forEach((element) => {
     section.appendChild(createProductItemElement(element));
   });
-  loadingApi();
+  rmvloadingApi();
 });
 
 // FUNÇÃO PARA ADICIONAR ITENS AO CARRINHO
@@ -139,7 +140,6 @@ const addFromButton = async () => {
       addItemPrice(price);
     });
   });
-  rmvloadingApi();
 };
 
 // FUNÇÃO QUE BUSCA OS ITENS SALVOS NO LOCALSTORAGE E OS MANTEM NO CARRINHO

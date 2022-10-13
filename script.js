@@ -94,14 +94,21 @@ const addFromButton = async () => {
   // SELETOR DOS RESULTADOS DOS PRODUTOS DA API E DOS BOTÕES DA PÁGINA
   const data = (await fetchProducts('computador')).results;
   const buttons = document.querySelectorAll('.item__add');
+  const storage = [];
 
-  data.forEach(async (element, index) => {
-  buttons[index].addEventListener('click', async (event) => {
-    const item = event.target.parentElement;
-    const itemId = getIdFromProductItem(item);
-    const itemInfo = await fetchItem(itemId);
-    listItem.appendChild(createCartItemElement(itemInfo));
-  });
+  data.forEach(async (dataElement, index) => {
+    buttons[index].addEventListener('click', async (event) => {
+      const item = event.target.parentElement;
+      const itemId = getIdFromProductItem(item);
+      const itemInfo = await fetchItem(itemId);
+      listItem.appendChild(createCartItemElement(itemInfo));
+      // LOCALSTORAGE INFO ITEM
+      const { id, title, price } = itemInfo;
+      const itemStorage = { id, title, price };
+      storage.push(itemStorage);
+      saveCartItems(storage);
+      console.log(storage);
+    });
   });
 };
 

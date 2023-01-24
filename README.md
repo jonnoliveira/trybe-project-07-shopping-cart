@@ -1,13 +1,80 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# PROJETO 07 - SHOPPING CART :computer:
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+## Esse projeto pertence ao módulo de `fundamentos` do curso da [Trybe](https://www.betrybe.com/) :green_heart:
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+## :construction: CSS em aprimoramento :construction:
+ 
+<details>
+ 
+<summary>
+  
+## 1- Resumo
+  
+</summary>
+
+No projeto Shopping Cart pude colocar em prática os conhecimentos adquiridos sobre JavaScript Assíncrono (Promises/Fetch/Async/Await). Utilizando o método TDD (Test Driven Development) e garantindo um código de boa qualidade com boa cobertura de teste, simulei um carrinho de compras de e-commerce totalmente dinâmico que recebe informações de uma API. Veja mais abaixo!
+  
+</details>
+
+#
+
+<details>
+ 
+<summary>
+ 
+## 2- Requisitos
+
+</summary>
+
+### I. (TDD) Desenvolva testes de no mínimo 25% de cobertura total e 100% da função fetchProducts
+
+### II. Crie uma listagem de produtos
+
+### III. (TDD) Desenvolva testes de no mínimo 50% de cobertura total e 100% da função fetchItem
+
+### IV. Adicione o produto ao carrinho de compras
+
+### V. Remova o item do carrinho de compras ao clicar nele
+
+### VI. (TDD) Desenvolva testes de no mínimo 75% de cobertura total e 100% da função saveCartItems
+
+### VII. (TDD) Desenvolva testes para atingir 100% de cobertura total e 100% da função getSavedCartItems
+
+### VIII. Carregue o carrinho de compras ao iniciar a página
+
+### IX. Calcule o valor total dos itens do carrinho de compras
+
+### X. Limpe o carrinho de compras
+
+### XI. Adicione um texto de carregando durante uma requisição à API
+
+</details>
+
+# 
+
+<details>
+ 
+<summary>
+
+## 3- Nota do Projeto
+ 
+</summary>
+
+## 100% :heavy_check_mark:
+
+![Project-Shopping-Cart-Grade]()
+
+</details> 
+ 
+# 
+
+<details>
+ 
+<summary>
+
+## 4- Preview
+
+</summary>
+
+  
+</details>

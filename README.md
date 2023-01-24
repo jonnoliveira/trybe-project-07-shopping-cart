@@ -62,7 +62,7 @@ No projeto Shopping Cart pude colocar em prática os conhecimentos adquiridos so
 
 ## 100% :heavy_check_mark:
 
-![Project-Shopping-Cart-Grade]()
+![Project-Shopping-Cart-Grade](https://github.com/jonnoliveira/trybe-project-07-shopping-cart/blob/main/image/shopping-cart-grade.png)
 
 </details> 
  

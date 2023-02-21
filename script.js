@@ -74,10 +74,12 @@ const addItemPrice = (price) => {
  * @param {string} product.price - Preço do produto.
  * @returns {Element} Elemento de um item do carrinho.
  */
-const createCartItemElement = ({ id, title, price }) => {
+const createCartItemElement = ({ id, title, price, thumbnail }) => {
+  const image = createProductImageElement(thumbnail);
   const li = document.createElement('li');
-  li.className = 'cart__item';
   li.innerText = `ID: ${id} | TITLE: ${title} | PRICE: $${price}`;
+  li.className = 'cart__item';
+  li.appendChild(image);
   li.addEventListener('click', (event) => {
     // EVENTO QUE APAGA CADA ITEM DO CARRINHO QUANDO CLICKADO E SUBTRAI O PREÇO
     const clickedElement = event.target;
@@ -165,6 +167,21 @@ const clearCart = () => {
 };
 
 buttonCart.addEventListener('click', clearCart);
+
+// Botão cabeçalho
+const buttonCartHeader = document.querySelector('.btn-card-header');
+
+const showCart = () => {
+  const cart = document.querySelector('.cart');
+  if (cart.style.display !== 'none') {
+    cart.style.display = 'none';
+  } else {
+    cart.style.display = 'block';
+  }
+}
+
+buttonCartHeader.addEventListener('click', showCart);
+
 
 window.onload = () => {
   addFromButton();

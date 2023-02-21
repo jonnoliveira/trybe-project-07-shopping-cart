@@ -2,8 +2,6 @@
 
 ## Esse projeto pertence ao módulo de `fundamentos` do curso da [Trybe](https://www.betrybe.com/) :green_heart:
 
-## :construction: CSS em aprimoramento :construction:
- 
 <details>
  
 <summary>
@@ -75,6 +73,9 @@ No projeto Shopping Cart pude colocar em prática os conhecimentos adquiridos so
 ## 4- Preview
 
 </summary>
+
+![Project-Shopping-Cart-Preview](https://github.com/jonnoliveira/trybe-project-07-shopping-cart/blob/main/image/shopping-cart-preview.png)
+
 
   
 </details>

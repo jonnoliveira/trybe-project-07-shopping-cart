@@ -2,6 +2,8 @@
 
 ## Esse projeto pertence ao módulo de `fundamentos` do curso da [Trybe](https://www.betrybe.com/) :green_heart:
 
+## Acesse o projeto clicando [aqui](https://jonnoliveira.github.io/trybe-project-07-shopping-cart/)! :computer:
+
 <details>
  
 <summary>

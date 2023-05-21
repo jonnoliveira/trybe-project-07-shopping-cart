@@ -36,27 +36,27 @@ No projeto Shopping Cart pude colocar em prática os conhecimentos adquiridos so
 
 </summary>
 
-### I. (TDD) Desenvolva testes de no mínimo 25% de cobertura total e 100% da função fetchProducts
+* I. (TDD) Desenvolva testes de no mínimo 25% de cobertura total e 100% da função fetchProducts
 
-### II. Crie uma listagem de produtos
+* II. Crie uma listagem de produtos
 
-### III. (TDD) Desenvolva testes de no mínimo 50% de cobertura total e 100% da função fetchItem
+* III. (TDD) Desenvolva testes de no mínimo 50% de cobertura total e 100% da função fetchItem
 
-### IV. Adicione o produto ao carrinho de compras
+* IV. Adicione o produto ao carrinho de compras
 
-### V. Remova o item do carrinho de compras ao clicar nele
+* V. Remova o item do carrinho de compras ao clicar nele
 
-### VI. (TDD) Desenvolva testes de no mínimo 75% de cobertura total e 100% da função saveCartItems
+* VI. (TDD) Desenvolva testes de no mínimo 75% de cobertura total e 100% da função saveCartItems
 
-### VII. (TDD) Desenvolva testes para atingir 100% de cobertura total e 100% da função getSavedCartItems
+* VII. (TDD) Desenvolva testes para atingir 100% de cobertura total e 100% da função getSavedCartItems
 
-### VIII. Carregue o carrinho de compras ao iniciar a página
+* VIII. Carregue o carrinho de compras ao iniciar a página
 
-### IX. Calcule o valor total dos itens do carrinho de compras
+* IX. Calcule o valor total dos itens do carrinho de compras
 
-### X. Limpe o carrinho de compras
+* X. Limpe o carrinho de compras
 
-### XI. Adicione um texto de carregando durante uma requisição à API
+* XI. Adicione um texto de carregando durante uma requisição à API
 
 </details>
 
